@@ -1,0 +1,24 @@
+<ion-row *ngIf="BMInumber">
+    <ion-col>
+        <ion-card>
+            <ion-card-content class="ion-text-center">
+                <h2>:كتلة جسمك هي</h2>
+                <h3>{{BMInumber}}</h3>
+                <h3>
+                    <ion-text [color]="result(BMInumber).color"> {{result(BMInumber).resultText}}</ion-text>
+
+                </h3>
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-content class="ion-text-right ion-padding-top">
+                <h2>نصائح</h2>
+
+                <ul className="ion-text-right ion-padding-top" *ngFor="let item of result(BMInumber).hint" style="list-style-type:none; padding: 0;">
+                    <li>{{item}}</li>
+                </ul>
+
+            </ion-card-content>
+        </ion-card>
+    </ion-col>
+</ion-row>

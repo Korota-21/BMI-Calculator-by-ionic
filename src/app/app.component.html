@@ -1,0 +1,60 @@
+<ion-app>
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <ion-title class="ion-text-center">
+                {{title}}
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <app-input-controller [selectedValue]="'m/kg'" (inputChangeHandler)="selectCalcUnitHandler($event)"></app-input-controller>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">
+                            <ng-container *ngIf="(calcUnits === 'm/kg') ;then hm; else hft">
+                            </ng-container>
+                            <ng-template #hft>
+                                طولك بالقدم
+                            </ng-template>
+                            <ng-template #hm>
+                                طولك بالسانتي متر
+                            </ng-template>
+                        </ion-label>
+                        <ion-input type="number" [(ngModel)]="heightInput"></ion-input>
+
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">
+                            <ng-container *ngIf="(calcUnits === 'm/kg') ;then wm; else wft">
+                            </ng-container>
+                            <ng-template #wft>
+                                وزنك بالباوند
+                            </ng-template>
+                            <ng-template #wm>
+                                وزنك بالكيلوجرام
+                            </ng-template>
+                        </ion-label>
+                        <ion-input type="number" [(ngModel)]="weghitInput"></ion-input>
+
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <app-gender-controller [selectedGender]="'female'" (genderChangeHandler)="selectGenderHandler($event)"></app-gender-controller>
+            <app-bmi-controllers (resetInputs)="reset()" (calculate)="calculate()"></app-bmi-controllers>
+            <app-bmi-result [BMInumber]="BMInumber"></app-bmi-result>
+        </ion-grid>
+
+    </ion-content>
+
+</ion-app>

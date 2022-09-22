@@ -1,0 +1,18 @@
+<ion-radio-group [(ngModel)]="selectedGender" (click)="genderChangeHandler.emit(selectedGender)">
+    <ion-row>
+        <ion-col>
+            <ion-item>
+                <ion-label>female</ion-label>
+                <ion-radio slot="start" value="female"></ion-radio>
+            </ion-item>
+        </ion-col>
+        <ion-col>
+            <ion-item>
+                <ion-label>male</ion-label>
+                <ion-radio slot="start" value="male"></ion-radio>
+            </ion-item>
+        </ion-col>
+
+
+    </ion-row>
+</ion-radio-group>
